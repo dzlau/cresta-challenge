@@ -7,6 +7,13 @@ on: workflow_dispatch
 jobs:
   daily-export:
     runs-on: ubuntu-latest
+    env: 
+        AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+        AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+        CLICKBASE_USER: ${{ secrets.CLICKBASE_USER }}
+        CLICKBASE_HOST: ${{ secrets.CLICKBASE_HOST }}
+        CLICKBASE_PASSWORD: ${{ secrets.CLICKBASE_PASSWORD }}
+        CLICKBASE_PORT: ${{ secrets.CLICKBASE_PORT }}
     steps:
     - uses: actions/checkout@v4
     - name: Set up Python
@@ -14,13 +21,7 @@ jobs:
       with:
         python-version: '3.x'
     - name: Install dependencies and run
-      env: 
-        AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-        AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
-        CLICKBASE_USER: ${{ secrets.CLICKBASE_USER }}
-        CLICKBASE_HOST: ${{ secrets.CLICKBASE_HOST }}
-        CLICKBASE_PASSWORD: ${{ secrets.CLICKBASE_PASSWORD }}
-        CLICKBASE_PORT: ${{ secrets.CLICKBASE_PORT }}
+      
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
