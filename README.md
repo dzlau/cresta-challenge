@@ -1,11 +1,12 @@
 # cresta-challenge
 
 ## Prereqs
-Make sure you have all env vars set up in settings for Github runner or as .env file in folder
+Make sure you have all env vars set up in settings for Github runner or as `.env` file in folder
 
 ## How to run
-1. `pip3 install -r requirements.txt`
-2. `python main.py`
+1. `source .env` 
+2. `pip3 install -r requirements.txt`
+3. `python main.py`
 
 ## Assumptions
 1. We are given an AWS_ACCESS_KEY and AWS_SECRET_KEY where we do not need to assume role to put to s3
