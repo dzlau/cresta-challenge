@@ -6,7 +6,7 @@ on:
 jobs:
   daily-export:
     runs-on: ubuntu-latest
-   steps:
+    steps:
     - uses: actions/checkout@v4
     - name: Set up Python
       uses: actions/setup-python@v4
