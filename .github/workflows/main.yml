@@ -7,6 +7,7 @@ on: workflow_dispatch
 jobs:
   daily-export:
     runs-on: ubuntu-latest
+    environment: production
     env: 
         AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
