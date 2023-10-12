@@ -1,8 +1,9 @@
 name: Daily Github Runner Cresta Dump
-on:
+on: workflow_dispatch
+
 # run at 12am everyday to get yesterdays value
-  schedule:
-    - cron: "0 0 * * *"
+  # schedule:
+  #   - cron: "0 0 * * *"
 jobs:
   daily-export:
     runs-on: ubuntu-latest
