@@ -22,8 +22,6 @@ jobs:
         CLICKBASE_PASSWORD: ${{ secrets.CLICKBASE_PASSWORD }}
         CLICKBASE_PORT: ${{ secrets.CLICKBASE_PORT }}
       run: |
-        echo "The GitHub Action Secret will be masked:  "
-        echo ${{ secrets.AWS_ACCESS_KEY }}
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         python main.py

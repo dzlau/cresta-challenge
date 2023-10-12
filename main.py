@@ -14,7 +14,7 @@ try:
 except Exception as e:
     print("Make sure to set proper env vars")
     raise
-
+print(CLICKBASE_HOST)
 # quantile 0.9 means "value should over-predict 90% of the times"
 query="""SELECT agent_id,AVG(call_duration_sec),quantile(0.9)(call_duration_sec) 
         FROM conversations where toDate(call_end)=toDate(yesterday()) 
