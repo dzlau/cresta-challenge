@@ -3,6 +3,7 @@ import os
 import clickhouse_connect
 import csv
 from datetime import datetime, timedelta
+import sys
 # check env vars
 try:
     AWS_ACCESS_KEY=os.environ["AWS_ACCESS_KEY"]
@@ -29,6 +30,9 @@ results = client.query(query)
 # clean data into list of dict
 data = [{'uuid':result[0],'avg_time':result[1], '90th_percentile':result[2]} for result in results.result_rows]
 
+if len(data) == 0:
+    print('no data returned from clickhouse')
+    sys.exit()
 # connect to boto3
 s3 = boto3.resource('s3',aws_access_key_id=AWS_ACCESS_KEY,
     aws_secret_access_key=AWS_SECRET_KEY)
